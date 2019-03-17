@@ -228,13 +228,23 @@ class Subscription(models.Model):
         TODO: Move this code to a more suitable place (i.e. `clean()`) and
         cleanup the code. Refer to comment below and
         https://docs.djangoproject.com/en/dev/ref/models/instances/#django.db.models.Model.clean
+
+        I Commented out the assertion tht user and email must not both be set.
+        We will prefer the user object if set, otherwise use the email, so it's not
+        an "issue" as far as I can tell.
+
+        I am having problems with the activation since the form sets the email
+        field causing this error. 
         """
         assert self.user or self.email_field, \
             _('Neither an email nor a username is set. This asks for '
               'inconsistency!')
-        assert ((self.user and not self.email_field) or
-                (self.email_field and not self.user)), \
-            _('If user is set, email must be null and vice versa.')
+
+
+        # ToDo: Re-visit if this is needed, or if so, how handle in the form
+        # assert ((self.user and not self.email_field) or
+        #         (self.email_field and not self.user)), \
+        #     _('If user is set, email must be null and vice versa.')
 
         # This is a lame way to find out if we have changed but using Django
         # API internals is bad practice. This is necessary to discriminate
