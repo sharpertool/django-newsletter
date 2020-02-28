@@ -43,8 +43,8 @@ except:
     TEST_REQUIREMENTS = None
 
 setup(
-    name='django-newsletter',
-    version="0.9gt0",
+    name='django-newsletter-gardentronic',
+    version="0.9.0r2",
     description=(
         'Django app for managing multiple mass-mailing lists with both '
         'plaintext as well as HTML templates (and pluggable WYSIWYG editors '
@@ -55,7 +55,7 @@ setup(
     install_requires=REQUIREMENTS,
     author='Mathijs de Bruin',
     author_email='mathijs@mathijsfietst.nl',
-    url='http://github.com/dokterbob/django-newsletter/',
+    url='https://github.com/dokterbob/django-newsletter/',
     packages=find_packages(exclude=("tests", "test_project")),
     include_package_data=True,
     classifiers=[

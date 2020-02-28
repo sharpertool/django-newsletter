@@ -2,6 +2,9 @@
 include README.rst
 include LICENSE
 include COPYRIGHT
+include requirements.txt
+include requirements_text.txt
+
 
 # Sphinx documentation
 recursive-include docs *
