@@ -44,7 +44,7 @@ except:
 
 setup(
     name='django-newsletter-gardentronic',
-    version="0.9.0r3",
+    version="0.9.0r4",
     description=(
         'Django app for managing multiple mass-mailing lists with both '
         'plaintext as well as HTML templates (and pluggable WYSIWYG editors '
