@@ -229,11 +229,11 @@ class Subscription(models.Model):
         cleanup the code. Refer to comment below and
         https://docs.djangoproject.com/en/dev/ref/models/instances/#django.db.models.Model.clean
 
-        I Commented out the assertion tht user and email must not both be set.
+        I Commented out the assertion that user and email must not both be set.
         We will prefer the user object if set, otherwise use the email, so it's not
         an "issue" as far as I can tell.
 
-        I am having problems with the activation since the form sets the email
+        I was having problems with the activation since the form sets the email
         field causing this error. 
         """
         assert self.user or self.email_field, \
@@ -312,7 +312,7 @@ class Subscription(models.Model):
         """
         Compare the data to legacy or new activation code.
 
-        If legacy code is not blank, we compare against that first, othersise
+        If legacy code is not blank, we compare against that first, otherwise
         use the uuid.
 
         If the data is not a UUID, we will attempt to coerce it. If that fails,
@@ -322,7 +322,6 @@ class Subscription(models.Model):
             # Legacy code is set, use that
             return data == self.activation_code
 
-        #
         if not isinstance(data, uuid.UUID):
             try:
                 data = uuid.UUID(data)
